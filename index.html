@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Basic Vue Js - HelloWorld App</title>
+
+		<!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+		<!-- Using via Google Web Fonts -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
+		<!-- https://tailwindcss.com/docs/installation -->
+		<!-- Using Tailwind via CDN -->
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+
+		<!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+		<!-- Vue CDN -->
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- component -->
+			<div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+				<div class="container mx-auto">
+					<div class="inputs w-full max-w-2xl p-6 mx-auto">
+						<form @submit.prevent="checkForm" class="mt-6 border-t border-gray-400 pt-4">
+							<div class="flex flex-wrap -mx-3 mb-6">
+								<div class="personal w-full pt-4">
+                                    <p v-if="errors" class="text-red-500">
+                                        <b>Please correct the following error(s):</b>
+                                        <ul>
+                                           <li v-for="error in errors" class="text-red-500">{{ error }}</li> 
+                                        </ul>
+                                    </p>
+									<h2 class="text-2xl text-gray-900">Personal info:</h2>
+									<div class="flex items-center justify-between mt-4">
+										<div class="w-full md:w-1/2 px-3 mb-6">
+											<label
+												class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+												>first name</label
+											>
+											<input
+												class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
+												type="text"
+												id="firstname"
+												v-model="firstname"
+												name="firstname"
+												
+											/>
+										</div>
+										<div class="w-full md:w-1/2 px-3 mb-6">
+											<label
+												class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+												>last name</label
+											>
+											<input
+												class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
+												type="text"
+												id="lastname"
+												v-model="lastname"
+												name="lastname"
+												
+											/>
+										</div>
+									</div>
+									<div class="flex items-center justify-between mt-4">
+										<div class="w-full md:w-1/2 px-3 mb-6">
+											<label
+												class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+												>user name</label
+											>
+											<input
+												class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
+												type="text"
+												id="username"
+												name="username"
+												v-model="username"
+												
+											/>
+										</div>
+										<div class="w-full md:w-1/2 px-3 mb-6">
+											<label
+												class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+												>phone</label
+											>
+											<input
+												class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
+												type="text"
+												id="phone"
+												name="phone"
+												v-model="phone"
+												
+											/>
+										</div>
+									</div>
+								</div>
+								<div class="w-full md:w-full px-3 mb-6">
+									<label
+										class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+										for="grid-text-1"
+										>email address</label
+									>
+									<input
+										class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
+										id="grid-text-1"
+										type="text"
+										placeholder="Enter email"
+										id="email"
+										name="email"
+										v-model="email"
+										
+									/>
+								</div>
+							</div>
+							<div class="flex justify-end">
+								<button
+									class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3"
+									type="submit"
+								>
+									save changes
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- my main.js -->
+		<script src="./main.js"></script>
+	</body>
+</html>
